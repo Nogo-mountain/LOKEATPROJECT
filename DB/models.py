@@ -19,6 +19,8 @@ class Diner(models.Model):
     etc = models.TextField()
     # diner_category = 
     
+    def __str__(self):
+        return self.english_name
     
 class Menu(models.Model):
     english_name = models.CharField(max_length=32)

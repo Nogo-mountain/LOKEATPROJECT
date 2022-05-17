@@ -62,9 +62,7 @@ def create_menu(en_name, ko_name, price_won, price_dollor, diner_id, category_id
     new_menu.ko_name = ko_name
     new_menu.price_won = price_won
     new_menu.price_dollor = price_dollor
-
     new_menu.diner = get_object_or_404(Diner, id=diner_id)
-    new_menu.diner = get_object_or_404(Category, id=category_id)
     
     new_menu.save()
     return {
