@@ -14,40 +14,34 @@
     <script type="text/javascript" src="{% static 'Maps/js/marker.js' %}"></script>
 
 <script>
-
-    // 내 현재위치찾고 marker표시
+// 내 현재위치찾고 marker표시
 function toMyPosition(){
     navigator.geolocation.getCurrentPosition(position => {
         console.log(position);
         console.log(map);
-    
-        map.setCenter(new naver.maps.Point(position.coords.latitude, position.coords.longitude))
+        map.setCenter(new naver.maps.Point(position.coords.longitude,position.coords.latitude))
         drawCenterMarker(map);
         
         })
     }
 var x = document.getElementById("demo");
-      
     function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
     } else { 
         x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-    }
+    }}
 
     function showPosition(position) {
     x.innerHTML = "Latitude: " + position.coords.latitude + 
     "<br>Longitude: " + position.coords.longitude;
     }
-    
 
-      </script>
+</script>
 </head>
 
 <body>
     <div id="map" style="width:100%;height:400px;"></div>
-
     <div>
       <p id="demo"></p>
       <button onclick="toMyPosition()">현재 내위치</button>
@@ -60,7 +54,7 @@ var x = document.getElementById("demo");
         <button onclick="getPoints()">저장된 점들 가져오기</button>
         <button onclick="sendSelectedPointsToServer()">지정한 지점 저장</button>
         <button onclick="reset()">마커 다 지우기</button>
-        <button onclick="distance()"> 거리계산 </button>
+        <!-- #<button onclick="distance()"> 거리계산 </button> -->
     </div>
     <script type="text/javascript">
         // window.onload = addMapClickEvent;

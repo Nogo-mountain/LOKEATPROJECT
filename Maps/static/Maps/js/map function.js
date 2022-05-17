@@ -160,8 +160,9 @@ function addInfoWindowToMarker(marker, infoElement) {
     return infoWindow;
 }
 
-function distance(){
-    var map = new naver.maps.Map('map'),  
+
+// 네이버지도상거리
+function distance(coord1,coord2){ 
     coord1 = new naver.maps.LatLng(position.coords.latitude, position.coords.longitude),
     coord2 = new naver.maps.LatLng(37.638786, 127.2826951);
     map.getPrimitiveProjection().getDistance(coord1, coord2);
