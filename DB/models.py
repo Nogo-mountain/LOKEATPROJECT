@@ -19,8 +19,8 @@ class Diner(models.Model):
     etc = models.TextField()
     # diner_category = 
     
-    def __str__(self):
-        return self.english_name
+    def __str__(diner):
+        return diner.english_name + '' + diner.korean_name
     
 class Menu(models.Model):
     english_name = models.CharField(max_length=32)
@@ -34,15 +34,14 @@ class Menu(models.Model):
     create_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
 
-
+  
 class Category(models.Model):
     name = models.CharField(max_length=32)
     etc = models.TextField()
     category_menus = models.ManyToManyField(Menu, related_name="category")
-    category_diner = models.ManyToManyField(Diner, related_name="category")
+    # category_diner = models.ManyToManyField(Diner, related_name="category")
     create_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
-
 
 class DinerPicture(models.Model):
     label = models.CharField(max_length=32)   
