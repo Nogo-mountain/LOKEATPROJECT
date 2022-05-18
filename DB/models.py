@@ -30,7 +30,7 @@ class Menu(models.Model):
     explanation = models.CharField(max_length=256)
     etc = models.TextField()
     # menu_category = 
-    diner = models.ForeignKey(Diner, on_delete=models.CASCADE)
+    diner = models.ForeignKey(Diner, on_delete=models.CASCADE, null=True, blank=True)
     create_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
 
