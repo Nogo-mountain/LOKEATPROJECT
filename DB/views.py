@@ -1,4 +1,6 @@
 from contextlib import nullcontext
+from pyexpat.errors import messages
+from typing import ItemsView
 from django.shortcuts import redirect, render, get_object_or_404, get_list_or_404
 from django.http import JsonResponse
 from DB.models import *
@@ -26,6 +28,7 @@ def index(request):
 
 
 def create_diner(en_name, ko_name, email, tel, area, lat, long, postcode, add1, add2, menu_id, category_id):
+
     new_diner = Diner()
     new_diner.en_name = en_name
     new_diner.ko_name = ko_name
@@ -135,3 +138,26 @@ def set_diner_category(diner_id, category_id):
     target_category.save()
     
     target_diner.save()
+    
+def addDiner(request):
+    if request.method == "POST":
+        new_diner = Diner()
+        new_diner.en_name = request.POST.get('en_name')
+        new_diner.ko_name = request.POST.get('ko_name')
+        new_diner.email = request.POST.get('email')
+        new_diner.tel = request.POST.tel('tel')
+        new_diner. area = request.POST.area('area')
+        new_diner.lat = request.POST.lat('lat')
+        new_diner.long = request.POST.long('long')
+        new_diner. postcode = request.POST.postcode('postcode')
+        new_diner. add1 = request.POST.add1('add1')
+        new_diner. add2 = request.POST.add2('add2')
+        
+        if len(request.FILES) !=0:
+            new_diner.image = request.FILES['image']
+            
+        new_diner.save()
+        messages.success(request,"New Diner Added Successfully")
+        return redirect('/')
+        
+    return render(request, 'new_diner/db.html')    

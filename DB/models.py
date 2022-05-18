@@ -34,7 +34,6 @@ class Menu(models.Model):
     create_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
 
-  
 class Category(models.Model):
     name = models.CharField(max_length=32)
     etc = models.TextField()
