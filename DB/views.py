@@ -160,4 +160,6 @@ def addDiner(request):
         messages.success(request,"New Diner Added Successfully")
         return redirect('/')
         
-    return render(request, 'new_diner/db.html')    
+    return render(request, 'new_diner/db.html')   
+
+ 

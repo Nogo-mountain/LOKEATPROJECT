@@ -10,13 +10,13 @@ class Diner(models.Model):
     area = models.CharField(max_length=32)
     lat = models.CharField(max_length=32,null=True)
     long = models.CharField(max_length=32,null=True)   
-    postcode = models.CharField(max_length=32)
+    postcode = models.CharField(max_length=32, null=True, blank=True)
     address_1 = models.CharField(max_length=256)
     address_2 = models.CharField(max_length=256)
     operation_time = models.CharField(max_length=128)
     create_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
-    etc = models.TextField()
+    etc = models.TextField(null=True, blank=True)
     # diner_category = 
     
     def __str__(diner):
@@ -28,7 +28,7 @@ class Menu(models.Model):
     price_won = models.CharField(max_length=32)
     price_dollar = models.CharField(max_length=32)
     explanation = models.CharField(max_length=256)
-    etc = models.TextField()
+    etc = models.TextField(null=True, blank=True)
     # menu_category = 
     diner = models.ForeignKey(Diner, on_delete=models.CASCADE, null=True, blank=True)
     create_at = models.DateTimeField(auto_now_add=True)
@@ -36,7 +36,7 @@ class Menu(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=32)
-    etc = models.TextField()
+    etc = models.TextField(null=True, blank=True)
     category_menus = models.ManyToManyField(Menu, related_name="category")
     # category_diner = models.ManyToManyField(Diner, related_name="category")
     create_at = models.DateTimeField(auto_now_add=True)
