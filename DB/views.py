@@ -89,6 +89,7 @@ def create_category(kind, diner_id, menu_id):
     }    
 
 def diner_picture_file(diner_picture_file, diner_id,):
+    new_diner_picture_file = DinerPicture()
     new_diner_picture_file = diner_picture_file()
     
     new_diner_picture_file.diner = get_object_or_404(Diner, id=diner_id)
@@ -98,6 +99,7 @@ def diner_picture_file(diner_picture_file, diner_id,):
     }   
     
 def menu_picture_file(menu_picture_file, menu_id):
+    new_menu_picture_file = MenuPicture()
     new_menu_picture_file = menu_picture_file()
     
     new_menu_picture_file.menu = get_object_or_404(Menu, id=menu_id)

@@ -17,11 +17,11 @@ class Diner(models.Model):
     create_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
     etc = models.TextField(null=True, blank=True)
-    # diner_picture = models.ManyToManyField(DinerPicture, related_name="diner_picture")
+    #diner_picture = models.ForeignKey(DinerPicture, default=None)
     # diner_category = 
     
-    def __str__(self):
-        return self.english_name + '' + self.korean_name
+    #def __str__(self):
+    #    return self.english_name + '' + self.korean_name
     
 class Menu(models.Model):
     english_name = models.CharField(max_length=32)
@@ -34,7 +34,7 @@ class Menu(models.Model):
     diner = models.ForeignKey(Diner, on_delete=models.CASCADE, null=True, blank=True)
     create_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
-    menu_picture = models.ImageField(default='default.png', blank=True)
+    # menu_picture = models.ImageField(default='default.png', blank=True)
     
 class Category(models.Model):
     name = models.CharField(max_length=32)
@@ -47,7 +47,7 @@ class Category(models.Model):
 class DinerPicture(models.Model):
     label = models.CharField(max_length=32)   
     # 인테리어 익스테리어 lable로 구분하세요
-    diner_picture = models.ImageField(
+    diner_picture_file = models.ImageField(
         upload_to="diner/diner_picture/%Y/%m/%d/%H/",
         blank=True)
     create_at = models.DateTimeField(auto_now_add=True)
