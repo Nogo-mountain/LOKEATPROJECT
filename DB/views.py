@@ -5,12 +5,16 @@ from django.shortcuts import redirect, render, get_object_or_404, get_list_or_40
 from django.http import JsonResponse
 from DB.models import *
 
+
+
 #화면에 맛집 표시하기 
 def index(request):
+    return render (request,'lokeat/index.html','lokeat/diner.html','lokeat/menu.html','lokeat/category.html','test_map/map.html', )
+
+def map(request):
     # recommend_restaurant에 있는 모든 객체를 불러와 recommend_restaurants에 저장
     # recommend_restaurants = recommend_restaurant.object.all()
     # str =''
-    
     return render (request,'test_map/map.html')
 
 #화면에 맛집 표시하기 

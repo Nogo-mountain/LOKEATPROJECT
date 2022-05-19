@@ -17,11 +17,10 @@ class Diner(models.Model):
     create_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
     etc = models.TextField(null=True, blank=True)
-    #diner_picture = models.ForeignKey(DinerPicture, default=None)
+    # diner_picture = models.ForeignKey(DinerPicture, default=None)
     # diner_category = 
-    
-    #def __str__(self):
-    #    return self.english_name + '' + self.korean_name
+    # def __str__(self):
+    # return self.english_name + '' + self.korean_name
     
 class Menu(models.Model):
     english_name = models.CharField(max_length=32)
@@ -52,7 +51,6 @@ class DinerPicture(models.Model):
         blank=True)
     create_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
-    
 
 class MenuPicture(models.Model):
     label = models.CharField(max_length=32)
